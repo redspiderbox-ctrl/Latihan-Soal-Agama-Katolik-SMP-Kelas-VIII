@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Latihan Soal Agama Katolik SMP Kelas VIII</title>
+  <title>Ulangan Agama Katolik SMP Kelas 8</title>
   <style>
     :root {
       --primary-color: #1b5e20; /* Hijau Tua */
@@ -189,37 +189,6 @@
       border-radius: 50%;
     }
 
-    /* Feedback Styles */
-    .option-label.correct {
-      background-color: #d4edda !important;
-      border-color: var(--success-color) !important;
-      color: #155724;
-      font-weight: 500;
-    }
-    .option-label.correct::after {
-      content: ' ✓ Benar';
-      position: absolute;
-      right: 15px;
-      font-weight: bold;
-    }
-
-    .option-label.wrong {
-      background-color: #f8d7da !important;
-      border-color: var(--danger-color) !important;
-      color: #721c24;
-    }
-    .option-label.wrong::after {
-      content: ' ✗ Salah';
-      position: absolute;
-      right: 15px;
-      font-weight: bold;
-    }
-
-    .option-label.dimmed {
-      opacity: 0.4;
-      pointer-events: none;
-    }
-
     /* --- ACTION BUTTONS --- */
     .action-buttons {
       display: flex;
@@ -336,17 +305,17 @@
     </div>
     <div class="title">
       <h2>SMPK Frateran Ndao-Ende</h2>
-      <p>Latihan Soal Pendidikan Agama Katolik</p>
+      <p>Ulangan Pendidikan Agama Katolik</p>
     </div>
   </header>
 
   <div class="container">
     <!-- Info Siswa -->
     <div class="student-info">
-      <h1>Latihan Soal Agama Katolik Kelas VIII</h1>
+      <h1>Ulangan Agama Katolik Kelas 8</h1>
       <p>Nama: <strong>Lambertus Adam Lowo Ngole</strong></p>
       <p>Kelas: <strong>VIII</strong></p>
-      <span class="sub-title">IMITASI KRISTUS & IMAN</span>
+      <span class="sub-title">ULANGAN HARIAN</span>
     </div>
 
     <form id="quiz">
@@ -373,10 +342,10 @@
 
     <!-- Hasil Section -->
     <div id="result-section">
-      <h2>Hasil Latihan Agama Katolik</h2>
+      <h2>Hasil Ulangan Agama Katolik</h2>
       <div class="grade-badge" id="gradeBadge">MENUNGGU</div>
       <div class="score-display"><span id="scoreVal">0</span> / 100</div>
-      <p class="feedback-text" id="feedbackText">Semoga iman dan pengetahuanmu bertumbuh.</p>
+      <p class="feedback-text" id="feedbackText">Semoga Tuhan memberkati usahamu.</p>
     </div>
   </div>
 
@@ -385,37 +354,44 @@
   </footer>
 
   <script>
-    // DATA SOAL (1-25)
-    // Dikonsolidasi dari kode sumber
+    // DATA SOAL (1-30)
+    // Kunci jawaban dikonversi dari lowercase (sumber) ke uppercase (standar sistem)
     const dataSoal = [
-      // Soal 1-5
-      { q: "1. Kitab suci umat Katolik adalah …", o: ["Al-Qur'an", "Tripitaka", "Injil", "Weda"], k: "C" },
-      { q: "2. Yesus Kristus lahir di kota …", o: ["Nazaret", "Yerusalem", "Betlehem", "Galilea"], k: "C" },
-      { q: "3. Sakramen yang pertama kali diterima umat Katolik adalah …", o: ["Ekaristi", "Krisma", "Baptis", "Tobat"], k: "C" },
-      { q: "4. Jumlah Perintah Allah ada …", o: ["5", "7", "8", "10"], k: "D" },
-      { q: "5. Kasih kepada sesama merupakan wujud pelaksanaan perintah …", o: ["Pertama", "Kedua", "Keempat", "Kesepuluh"], k: "B" },
+      // 1-10 Dasar Iman
+      { q: "1. Kitab suci umat Katolik adalah ....", o: ["Al-Qur'an", "Tripitaka", "Alkitab"], k: "C" },
+      { q: "2. Allah Bapa, Putra, dan Roh Kudus disebut ....", o: ["Tritunggal Mahakudus", "Malaikat", "Rasul"], k: "A" },
+      { q: "3. Yesus lahir di kota ....", o: ["Nazaret", "Betlehem", "Yerusalem"], k: "B" },
+      { q: "4. Hari raya kebangkitan Yesus disebut ....", o: ["Natal", "Paskah", "Pentakosta"], k: "B" },
+      { q: "5. Doa yang diajarkan Yesus adalah ....", o: ["Salam Maria", "Bapa Kami", "Aku Percaya"], k: "B" },
+      { q: "6. Sepuluh Perintah Allah diberikan kepada ....", o: ["Musa", "Petrus", "Paulus"], k: "A" },
+      { q: "7. Sakramen pembaptisan berarti ....", o: ["Pengutusan", "Kelahiran baru dalam Kristus", "Pengampunan dosa"], k: "B" },
+      { q: "8. Pemimpin tertinggi Gereja Katolik adalah ....", o: ["Uskup", "Pastor", "Paus"], k: "C" },
+      { q: "9. Kitab Perjanjian Baru berisi tentang ....", o: ["Sejarah Israel", "Kehidupan dan ajaran Yesus", "Hukum Musa"], k: "B" },
+      { q: "10. Roh Kudus turun atas para rasul pada hari ....", o: ["Pentakosta", "Natal", "Jumat Agung"], k: "A" },
       
-      // Soal 6-25
-      { q: "6. Gereja Katolik dipimpin oleh …", o: ["Pastor", "Uskup", "Paus", "Diakon"], k: "C" },
-      { q: "7. Roh Kudus turun kepada para rasul pada peristiwa …", o: ["Natal", "Paskah", "Pentakosta", "Adven"], k: "C" },
-      { q: "8. Sakramen Ekaristi mengenangkan peristiwa …", o: ["Kelahiran Yesus", "Mukjizat Yesus", "Perjamuan Terakhir", "Kenaikan Yesus"], k: "C" },
-      { q: "9. Hari raya kebangkitan Yesus disebut …", o: ["Natal", "Paskah", "Pentakosta", "Adven"], k: "B" },
-      { q: "10. Doa yang diajarkan langsung oleh Yesus adalah …", o: ["Salam Maria", "Doa Bapa Kami", "Credo", "Magnificat"], k: "B" },
-      { q: "11. Kitab Perjanjian Baru berisi tentang …", o: ["Hukum Taurat", "Kisah para nabi", "Kehidupan Yesus", "Sejarah Israel"], k: "C" },
-      { q: "12. Orang tua Yesus di dunia adalah …", o: ["Maria dan Yusuf", "Maria dan Elisabet", "Maria dan Yohanes", "Yusuf dan Petrus"], k: "A" },
-      { q: "13. Gereja disebut satu, kudus, katolik, dan apostolik karena …", o: ["Karena bangunannya", "Karena ajarannya", "Karena sifatnya", "Karena umatnya"], k: "C" },
-      { q: "14. Masa persiapan Paskah disebut …", o: ["Adven", "Prapaskah", "Pentakosta", "Natal"], k: "B" },
-      { q: "15. Lambang Roh Kudus adalah …", o: ["Api", "Air", "Burung merpati", "Salib"], k: "C" },
-      { q: "16. Perayaan kelahiran Yesus disebut …", o: ["Paskah", "Pentakosta", "Natal", "Adven"], k: "C" },
-      { q: "17. Sepuluh Perintah Allah diberikan kepada …", o: ["Abraham", "Musa", "Daud", "Salomo"], k: "B" },
-      { q: "18. Tindakan mengakui dosa kepada imam disebut …", o: ["Pengurapan", "Pengakuan dosa", "Tobat", "Ekaristi"], k: "C" }, // Catatan: Kunci di kode asal adalah C (Tobat), bukan B (Pengakuan dosa). Mengikuti kode asal.
-      { q: "19. Umat Katolik wajib mengikuti Misa pada hari …", o: ["Sabtu", "Jumat", "Minggu", "Senin"], k: "C" },
-      { q: "20. Kitab Injil berjumlah …", o: ["2", "3", "4", "5"], k: "C" },
-      { q: "21. Tugas utama murid-murid Yesus adalah …", o: ["Berdoa saja", "Menyebarkan Injil", "Bekerja", "Belajar"], k: "B" },
-      { q: "22. Hidup meneladani Yesus berarti …", o: ["Hidup mewah", "Hidup penuh kasih", "Hidup bebas", "Hidup sendiri"], k: "B" },
-      { q: "23. Gereja sebagai umat Allah berarti …", o: ["Gedung gereja", "Para imam", "Seluruh umat beriman", "Para rasul"], k: "C" },
-      { q: "24. Sakramen Krisma meneguhkan iman melalui …", o: ["Air", "Api", "Minyak Krisma", "Roti"], k: "C" },
-      { q: "25. Sikap yang mencerminkan iman Katolik adalah …", o: ["Berbuat baik dan mengasihi sesama", "Mencari pujian", "Mementingkan diri", "Menghindari orang lain"], k: "A" }
+      // 11-20 Moral & Sakramen
+      { q: "11. Menghormati orang tua termasuk perintah Allah yang ke ....", o: ["3", "4", "5"], k: "B" },
+      { q: "12. Sakramen Ekaristi memperingati ....", o: ["Kelahiran Yesus", "Perjamuan Terakhir", "Kebangkitan Yesus"], k: "B" },
+      { q: "13. Mengaku dosa dilakukan dalam sakramen ....", o: ["Krisma", "Tobat", "Perkawinan"], k: "B" },
+      { q: "14. Gereja adalah persekutuan umat ....", o: ["Allah", "Nabi", "Rasul saja"], k: "A" },
+      { q: "15. Kitab pertama dalam Alkitab adalah ....", o: ["Keluaran", "Kejadian", "Mazmur"], k: "B" },
+      { q: "16. Yesus memilih ____ rasul.", o: ["10", "12", "7"], k: "B" },
+      { q: "17. Ibu Yesus bernama ....", o: ["Maria", "Marta", "Magdalena"], k: "A" },
+      { q: "18. Lambang kasih dalam iman Katolik adalah ....", o: ["Salib", "Burung", "Gunung"], k: "A" },
+      { q: "19. Yesus wafat di kayu ....", o: ["Palem", "Salib", "Batu"], k: "B" },
+      { q: "20. Hari kelahiran Yesus dirayakan setiap tanggal ....", o: ["1 Januari", "25 Desember", "17 Agustus"], k: "B" },
+      
+      // 21-30 Campuran
+      { q: "21. Kitab Mazmur termasuk dalam Perjanjian ....", o: ["Lama", "Baru", "Injil"], k: "A" },
+      { q: "22. Santo pelindung Gereja Indonesia adalah ....", o: ["Santo Petrus", "Santo Fransiskus Xaverius", "Santo Paulus"], k: "B" },
+      { q: "23. Perintah pertama Allah adalah ....", o: ["Jangan membunuh", "Hormati orang tuamu", "Jangan ada padamu allah lain di hadapan-Ku"], k: "C" },
+      { q: "24. Tempat ibadah umat Katolik adalah ....", o: ["Masjid", "Gereja", "Pura"], k: "B" },
+      { q: "25. Sakramen Krisma berarti ....", o: ["Penguatan iman", "Pernikahan", "Pengurapan orang sakit"], k: "A" },
+      { q: "26. Injil ditulis oleh ....", o: ["4 orang penginjil", "2 orang rasul", "1 nabi"], k: "A" },
+      { q: "27. Salah satu Injil adalah Injil ....", o: ["Markus", "Kejadian", "Mazmur"], k: "A" },
+      { q: "28. Yesus dibaptis oleh ....", o: ["Petrus", "Yohanes Pembaptis", "Paulus"], k: "B" },
+      { q: "29. Lambang Roh Kudus adalah ....", o: ["Api dan burung merpati", "Air dan batu", "Gunung dan pohon"], k: "A" },
+      { q: "30. Gereja Katolik bersifat satu, kudus, katolik, dan ....", o: ["rasuli", "besar", "modern"], k: "A" }
     ];
 
     // Generator HTML
@@ -443,13 +419,13 @@
       container.appendChild(card);
     });
 
-    // KUNCI JAWABAN (Otomatis dari data di atas)
+    // KUNCI JAWABAN
     const kunci = {};
     dataSoal.forEach((item, index) => {
       kunci[`q${index + 1}`] = item.k;
     });
 
-    // FUNGSI VALIDASI & CEK
+    // FUNGSI VALIDASI & CEK (TANPA TAMPILAN JAWABAN)
     function checkAnswers() {
       let soalKosong = [];
 
@@ -485,32 +461,15 @@
       // Hitung Nilai
       let score = 0;
       const total = dataSoal.length;
-      const questionCards = document.querySelectorAll('.question-card');
       
-      questionCards.forEach((card, index) => {
-        const qNum = index + 1;
-        const inputs = card.querySelectorAll('input[type="radio"]');
-        inputs.forEach(input => input.disabled = true);
-
-        const selected = card.querySelector('input[type="radio"]:checked');
-        const labels = card.querySelectorAll('.option-label');
-        const correctVal = kunci['q'+qNum];
-        const correctInput = card.querySelector(`input[type="radio"][value="${correctVal}"]`);
-
-        if (selected) {
-          if (selected.value === correctVal) {
-            score++;
-            selected.parentElement.classList.add('correct');
-          } else {
-            selected.parentElement.classList.add('wrong');
-            labels.forEach(lbl => {
-              if(lbl !== selected.parentElement) lbl.classList.add('dimmed');
-            });
-            if(correctInput) correctInput.parentElement.classList.remove('dimmed');
-            if(correctInput) correctInput.parentElement.classList.add('correct');
-          }
+      for (let i = 1; i <= total; i++) {
+        const checked = document.querySelector(`input[name="q${i}"]:checked`);
+        if (checked && checked.value === kunci["q"+i]) {
+          score++;
         }
-      });
+        // Disable inputs
+        document.querySelectorAll(`input[name="q${i}"]`).forEach(el => el.disabled = true);
+      }
 
       const finalScore = Math.round((score * 100) / total);
       document.getElementById('scoreVal').textContent = finalScore;
@@ -524,9 +483,9 @@
       } else if (finalScore >= 80) {
         gradeText = 'B (BAIK)'; gradeColor = '#17a2b8'; feedback = 'Bagus! Terus meneladani ajaran Kristus.';
       } else if (finalScore >= 70) {
-        gradeText = 'C (CUKUP)'; gradeColor = '#ffc107'; feedback = 'Cukup baik, tingkatkan lagi semangat belajarmu.';
+        gradeText = 'C (CUKUP)'; gradeColor = '#ffc107'; feedback = 'Cukup baik, tingkatkan lagi doa dan belajarnya.';
       } else {
-        gradeText = 'D (KURANG)'; gradeColor = '#dc3545'; feedback = 'Jangan menyerah, teruslah berdoa dan belajar.';
+        gradeText = 'D (KURANG)'; gradeColor = '#dc3545'; feedback = 'Jangan menyerah, ayo pelajari lagi Kitab Suci.';
       }
 
       const gradeBadge = document.getElementById('gradeBadge');
@@ -539,7 +498,7 @@
       const kelasSiswa = "VIII";
       const tanggal = new Date().toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
-      let pesan = `*LAPORAN HASIL LATIHAN AGAMA KATOLIK*%0A%0A`;
+      let pesan = `*LAPORAN HASIL ULANGAN AGAMA KATOLIK*%0A%0A`;
       pesan += `👤 Nama: ${namaSiswa}%0A`;
       pesan += `🏫 Kelas: ${kelasSiswa}%0A`;
       pesan += `📅 Tanggal: ${tanggal}%0A`;
@@ -564,10 +523,7 @@
       const form = document.getElementById('quiz');
       form.reset();
       
-      document.querySelectorAll('.option-label').forEach(el => {
-        el.classList.remove('correct', 'wrong', 'dimmed');
-      });
-      
+      // Enable inputs
       document.querySelectorAll('input[type="radio"]').forEach(el => el.disabled = false);
 
       document.getElementById('result-section').style.display = 'none';
